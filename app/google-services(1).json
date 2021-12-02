@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "500054223808",
+    "project_id": "autenticacionfirebase-e96ba",
+    "storage_bucket": "autenticacionfirebase-e96ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500054223808:android:dc03ae6878aef252e57625",
+        "android_client_info": {
+          "package_name": "com.dam2a.firebaseauntenticacion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500054223808-5le5hkeed49fb7i9ds3bhkhsreedjn4u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dam2a.firebaseauntenticacion",
+            "certificate_hash": "a31a0d45123a4411b927e5bb24c20a312a6ec486"
+          }
+        },
+        {
+          "client_id": "500054223808-q1a9ndepnqrtdll09dven25mu4abmjhj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQQy2evG0oU1b2KBedplcGTxmZkOsNGUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "500054223808-q1a9ndepnqrtdll09dven25mu4abmjhj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
