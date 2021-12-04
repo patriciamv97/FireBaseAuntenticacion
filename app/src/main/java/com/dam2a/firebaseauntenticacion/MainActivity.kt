@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         iniciarSesion = findViewById(R.id.iniciarSesion)
         registro = findViewById(R.id.registro)
 
-        //Instanciamos en objeto auth
+        //Instanciamos en objeto auth que nos permitira crear un usuario e iniciar sesion
         auth = Firebase.auth
 
         registro.setOnClickListener{
@@ -48,11 +48,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-
-
-
-
     /**
      * Método que recibe un email y una contraseña las valida y crea un usuario con ellas.
      */
@@ -63,11 +58,14 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
+                    Log.d("estado","usuario registrado")
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                    Log.d("estado","usuario NO registrado")
+
                     Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
@@ -75,8 +73,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * Método que sirve para actualizar el layout cuando inicias sesión o te registras
+     * Para que funcione deberias crear otras activities y que se cargasen cuando el registro
+     * o el inicio fuesen correcto y te permitiese acceder a las funcionalidades de la app
+     */
+
     private fun updateUI(user: FirebaseUser?) {
-        Log.d("CurrentUser",""+auth.currentUser?.uid)
+        Log.d("estado",""+auth.currentUser?.uid)
     }
 
     /**
@@ -87,13 +91,17 @@ class MainActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
+                    //Inicio de sesion correcto el metodo update
                     Log.d(TAG, "signInWithEmail:success")
+                    Log.d("estado","inicio de sesión correcto")
+
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Log.d("estado","No se puedo iniciar sesion")
+
                     Toast.makeText(
                         baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT
@@ -101,7 +109,7 @@ class MainActivity : AppCompatActivity() {
                     updateUI(null)
                 }
             }
-        // [END sign_in_with_email]
+
     }
 
     /**
